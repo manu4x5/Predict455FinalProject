@@ -1,0 +1,447 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10500.17.1226.1925                               -->
+<workbook original-version='10.5' source-build='10.5.0 (10500.17.1226.1925)' source-platform='mac' version='10.5' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='coindesk-USD-close_data (coindesk_googletrend)' inline='true' name='federated.1m9ikve1iew4cm19v05z01lv0kbx' version='10.5'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='coindesk_googletrend' name='excel-direct.1ln259o062qyu51h8t1ns0eihv44'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='/Users/awalters/Dropbox/NorthWestern/Predict 455 - Winter 2018/Final Project/indata/coindesk_googletrend.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation connection='excel-direct.1ln259o062qyu51h8t1ns0eihv44' name='coindesk-USD-close_data' table='[&apos;coindesk-USD-close_data$&apos;]' type='table'>
+          <columns gridOrigin='A1:D263:no:A1:D263:0' header='yes' outcome='2'>
+            <column datatype='date' name='Date' ordinal='0' />
+            <column datatype='real' name='Close Price' ordinal='1' />
+            <column datatype='integer' name='Google Trend' ordinal='2' />
+            <column datatype='real' name='Average Close Price' ordinal='3' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Date]</local-name>
+            <parent-name>[coindesk-USD-close_data]</parent-name>
+            <remote-alias>Date</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Close Price</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Close Price]</local-name>
+            <parent-name>[coindesk-USD-close_data]</parent-name>
+            <remote-alias>Close Price</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Google Trend</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Google Trend]</local-name>
+            <parent-name>[coindesk-USD-close_data]</parent-name>
+            <remote-alias>Google Trend</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Average Close Price</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Average Close Price]</local-name>
+            <parent-name>[coindesk-USD-close_data]</parent-name>
+            <remote-alias>Average Close Price</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[coindesk-USD-close_data]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:D263:no:A1:D263:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <column datatype='real' name='[Average Close Price]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Google Trend]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column-instance column='[Average Close Price]' derivation='Sum' name='[diff:sum:Average Close Price:qk:2]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-2</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Average Close Price]' derivation='Sum' name='[diff:sum:Average Close Price:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Google Trend]' derivation='Sum' name='[diff:sum:Google Trend:qk:2]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-2</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Google Trend]' derivation='Sum' name='[diff:sum:Google Trend:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Average Close Price]' derivation='Sum' name='[pcdf:sum:Average Close Price:qk:2]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='PctDiff'>
+          <address>
+            <value>-2</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Average Close Price]' derivation='Sum' name='[pcdf:sum:Average Close Price:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='PctDiff'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Google Trend]' derivation='Sum' name='[pcdf:sum:Google Trend:qk:2]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='PctDiff'>
+          <address>
+            <value>-2</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Google Trend]' derivation='Sum' name='[pcdf:sum:Google Trend:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='PctDiff'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Average Close Price]' derivation='Sum' name='[sum:Average Close Price:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Google Trend]' derivation='Sum' name='[sum:Google Trend:qk]' pivot='key' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.446918' measure-ordering='alphabetic' measure-percentage='0.553082' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1m9ikve1iew4cm19v05z01lv0kbx].[diff:sum:Average Close Price:qk:2]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1m9ikve1iew4cm19v05z01lv0kbx].[diff:sum:Average Close Price:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1m9ikve1iew4cm19v05z01lv0kbx].[pcdf:sum:Average Close Price:qk:2]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1m9ikve1iew4cm19v05z01lv0kbx].[pcdf:sum:Average Close Price:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1m9ikve1iew4cm19v05z01lv0kbx].[sum:Average Close Price:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1m9ikve1iew4cm19v05z01lv0kbx].[diff:sum:Google Trend:qk:2]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1m9ikve1iew4cm19v05z01lv0kbx].[diff:sum:Google Trend:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1m9ikve1iew4cm19v05z01lv0kbx].[pcdf:sum:Google Trend:qk:2]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1m9ikve1iew4cm19v05z01lv0kbx].[pcdf:sum:Google Trend:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1m9ikve1iew4cm19v05z01lv0kbx].[sum:Google Trend:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Bitcoin Price Versus Google Trends&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='coindesk-USD-close_data (coindesk_googletrend)' name='federated.1m9ikve1iew4cm19v05z01lv0kbx' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1m9ikve1iew4cm19v05z01lv0kbx'>
+            <column datatype='real' name='[Average Close Price]' role='measure' type='quantitative' />
+            <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
+            <column datatype='integer' name='[Google Trend]' role='measure' type='quantitative' />
+            <column-instance column='[Average Close Price]' derivation='Sum' name='[diff:sum:Average Close Price:qk:2]' pivot='key' type='quantitative'>
+              <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+                <address>
+                  <value>-2</value>
+                </address>
+              </table-calc>
+            </column-instance>
+            <column-instance column='[Google Trend]' derivation='Sum' name='[diff:sum:Google Trend:qk:2]' pivot='key' type='quantitative'>
+              <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+                <address>
+                  <value>-2</value>
+                </address>
+              </table-calc>
+            </column-instance>
+            <column-instance column='[Date]' derivation='Week-Trunc' name='[twk:Date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1m9ikve1iew4cm19v05z01lv0kbx].[diff:sum:Google Trend:qk:2]' field-type='quantitative' fold='true' scope='rows' type='space' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1m9ikve1iew4cm19v05z01lv0kbx].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1m9ikve1iew4cm19v05z01lv0kbx].[diff:sum:Average Close Price:qk:2]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1m9ikve1iew4cm19v05z01lv0kbx].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1m9ikve1iew4cm19v05z01lv0kbx].[diff:sum:Google Trend:qk:2]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1m9ikve1iew4cm19v05z01lv0kbx].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.1m9ikve1iew4cm19v05z01lv0kbx].[diff:sum:Average Close Price:qk:2] + [federated.1m9ikve1iew4cm19v05z01lv0kbx].[diff:sum:Google Trend:qk:2])</rows>
+        <cols>[federated.1m9ikve1iew4cm19v05z01lv0kbx].[twk:Date:qk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.1m9ikve1iew4cm19v05z01lv0kbx].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1m9ikve1iew4cm19v05z01lv0kbx].[yr:Date:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      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
+      A7x0JSUg412+AAAAAElFTkSuQmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>

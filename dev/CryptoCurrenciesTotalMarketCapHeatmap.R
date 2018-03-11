@@ -1,3 +1,6 @@
+#R3.3 Checkout Complete.
+# Data Dictionary Name: CryptoCurrencyMarketCap
+
 color1 = '#0168bb'
 color2 = '#9196aa'
 color3 = '#2e5785'

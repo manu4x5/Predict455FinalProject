@@ -1,3 +1,6 @@
+# R 3.3 Verified
+# Data Dictionary: BitcoinExchangeVolumes
+
 library(Quandl)
 
 Quandl("BCHAIN/NTRAN")

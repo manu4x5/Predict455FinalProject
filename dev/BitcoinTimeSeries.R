@@ -1,3 +1,6 @@
+#R3.3 Checkout Complete.
+#Data Dictionary: BitcoinTimeSeries
+
 library(jsonlite)
 library(lubridate)
 library(ggplot2)

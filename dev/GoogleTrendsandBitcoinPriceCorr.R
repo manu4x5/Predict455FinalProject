@@ -1,4 +1,5 @@
-
+#R 3.3 verified
+# Data Dictionary: GoogleTrendandBitcoinPriceCorr
 
 #Packages
 library(ggplot2)
@@ -13,7 +14,8 @@ color2 = '#9196aa'
 color3 = '#2e5785'
 color4 = '#474a54'
 
-setwd("~/Dropbox/NorthWestern/Predict 455 - Winter 2018/Final Project/indata")
+#Set To Location of indata folder on local machine.
+setwd("~/Dropbox/NorthWestern/Predict 455 - Winter 2018/Predict455FinalProject/indata")
 
 coindesk_googletrend <- read_excel("coindesk_googletrend.xlsx", sheet = 'coindesk-USD-close_data',
                                    col_types = c("date", "numeric", "numeric", 

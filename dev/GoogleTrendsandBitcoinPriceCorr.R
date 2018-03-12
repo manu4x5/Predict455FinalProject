@@ -21,7 +21,7 @@ coindesk_googletrend <- read_excel("coindesk_googletrend.xlsx", sheet = 'coindes
                                    col_types = c("date", "numeric", "numeric", 
                                                  "numeric"))
 
-View(coindesk_googletrend)
+#View(coindesk_googletrend)
 coindesk_googletrend= coindesk_googletrend[complete.cases(coindesk_googletrend), ]
 
 maxAveragePriceTrend = max(coindesk_googletrend$`Average Close Price`)
@@ -33,9 +33,22 @@ p1 = ggplot(coindesk_googletrend, aes(Date))+
   geom_line(aes(y = AverageClosePriceNormal, colour = color1)) + 
   geom_line(aes(y = `Google Trend`, colour = color2))+
   theme(panel.background = element_blank(),legend.position="none")   +
-  xlab("Observation Date") + ylab("Normalize Relative Value")+
+  xlab("Year") + ylab("Normalize Relative Value")+
   ylim(0,100)
 p1
+
+p1 = ggplot(coindesk_googletrend, aes(Date))+
+  geom_line(aes(y = AverageClosePriceNormal, colour = color1)) + 
+  geom_line(aes(y = `Google Trend`, colour = color2))+
+theme(panel.background = element_blank(),legend.position="none")+
+  theme(
+        panel.grid.major.y = element_line(color="black", size = .02))+
+  xlab("Year") + ylab("Normalize Relative Value")+
+  ylim(0,100)
+p1
+
+
+
 require(grid)
 
 
